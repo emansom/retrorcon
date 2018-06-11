@@ -1,0 +1,86 @@
+syntax = "proto3";
+
+package kepler.rcon;
+
+option java_multiple_files = true;
+option java_package = "org.alexdev.kepler.server.rcon";
+option java_outer_classname = "RconProto";
+
+import "google/protobuf/empty.proto";
+
+service Rcon {
+    rpc Ping(google.protobuf.Empty) returns (Response) {}
+    rpc GetOnlineCount(google.protobuf.Empty) returns (OnlineCountResponse) {}
+    rpc RefreshAppearance(RefreshAppearanceRequest) returns (Response) {}
+    rpc RefreshBadges(RefreshBadgesRequest) returns (Response) {}
+    rpc RefreshEvents(google.protobuf.Empty) returns (Response) {}
+    rpc RefreshCatalogue(google.protobuf.Empty) returns (Response) {}
+    rpc OpenInfobus(google.protobuf.Empty) returns (Response) {}
+    rpc CloseInfobus(google.protobuf.Empty) returns (Response) {}
+    // TODO: Alert function with enum type
+    rpc AlertRoom(RoomAlertRequest) returns (Response) {}
+    rpc AlertUser(UserAlertRequest) returns (Response) {}
+    rpc AlertHotel(HotelAlertRequest) returns (Response) {}
+    rpc IsUserOnline(UserOnlineRequest) returns (UserOnlineResponse) {}
+    rpc ChangeRoom(Room) returns (Response) {}
+    rpc ChangeUser(User) returns (Response) {}
+    rpc Ban(BanRequest) returns (Response) {}
+    rpc Unban(UnbanRequest) returns (Response) {}
+}
+
+message RefreshAppearanceRequest {
+    uint32 user_id = 1;
+}
+
+message RefreshBadgesRequest {
+    uint32 user_id = 1;
+}
+
+message RoomAlertRequest {
+    uint32 room_id = 1;
+    string alert = 2;
+}
+
+message UserAlertRequest {
+    uint32 user_id = 1;
+    string alert = 2;
+}
+
+message HotelAlertRequest {
+    string alert = 1;
+}
+
+message UserOnlineRequest {
+    uint32 user_id = 1;
+    string username = 2;
+}
+
+message UserOnlineResponse {
+    bool online = 1;
+}
+
+message Room {
+    // TODO
+}
+
+message User {
+    // TODO
+}
+
+message BanRequest {
+    uint32 user_id = 1;
+    string reason = 2;
+}
+
+message UnbanRequest {
+    uint32 user_id = 1;
+}
+
+message Response {
+    bool ok = 1;
+    string error = 2;
+}
+
+message OnlineCountResponse {
+    uint32 online_count = 1;
+}
