@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package retrorcon;
+package RetroRCON;
 
 option java_multiple_files = true;
 option java_package = "com.github.emansom.retrorcon";
