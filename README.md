@@ -1,4 +1,4 @@
-# retro-rcon
+# RetroRCON
 An gRPC service definition to standardize RCON communication for Habbo emulation once and for all
 
 For long, different emulators and CMSes have been implementing their own RCON protocol, making CMS migration tedious. This project aims to change that by standardizing the RCON protocol, using the industry-standard gRPC made and used by Google.
@@ -25,7 +25,7 @@ Server implementations are to be used within emulators
 - Protobuf PHP extension
 - composer
 
-## A feature is missing! 
+## A feature is missing!
 Please create an issue/bug report in this repository and we'll work on implementing it.
 
 ## How to contribute
