@@ -1,9 +1,9 @@
 syntax = "proto3";
 
-package kepler.rcon;
+package retrorcon;
 
 option java_multiple_files = true;
-option java_package = "org.alexdev.kepler.server.rcon";
+option java_package = "com.github.emansom.retrorcon";
 option java_outer_classname = "RconProto";
 
 import "google/protobuf/empty.proto";
