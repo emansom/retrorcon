@@ -26,6 +26,7 @@ service Rcon {
     rpc ChangeUser(User) returns (Response) {}
     rpc Ban(BanRequest) returns (Response) {}
     rpc Unban(UnbanRequest) returns (Response) {}
+    rpc CreateStarterRoom(StarterRoomRequest) returns (Response) {}
 }
 
 message RefreshAppearanceRequest {
@@ -83,4 +84,17 @@ message Response {
 
 message OnlineCountResponse {
     uint32 online_count = 1;
+}
+
+message StarterRoomRequest {
+    uint32 user_id = 1;
+    enum StarterRoomTheme {
+        ORANGE = 0;
+        PURPLE_BLUE = 1;
+        BRICK = 2;
+        LIGHT_BLUE = 3;
+        PINK = 4;
+        LIME_GREEN = 5;
+    }
+    StarterRoomTheme theme = 2;
 }
